@@ -46,7 +46,7 @@
             </v-avatar>
             <strong class="ml-3">Geo Oliva Founder & CEO (Zeus Scam) </strong>
             <ul class="ml-5">
-              <li class="ml-1">&7.8 Million Zeus Network Scam</li>
+              <li class="ml-1">$7.8 Million Zeus Network Scam</li>
               <li class="ml-1">Nationality: Unknown</li>
               <li class="ml-1">Twitter: <a target="_blank" href="https://twitter.com/BitcoinGeo">Geo Oliva</a></li>
               <li class="ml-1">Languages: English</li>

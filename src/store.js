@@ -122,6 +122,30 @@ export default new Vuex.Store({
         console.log(error);
       })
     },
+    // loadArticles ({commit}) {
+    //   // Loads all articles once
+    //   firebase.database().ref('articles').once('value')
+    //   .then((data) => {
+    //     const articles = []
+    //     const obj = data.val()
+    //     for (let key in obj) {
+    //       articles.push({
+    //         id: key,
+    //         title: obj[key].title,
+    //         author: obj[key].author,
+    //         imageUrl: obj[key].imageUrl,
+    //         header: obj[key].header,
+    //         content: obj[key].content,
+    //         date: obj[key].date,
+    //         creatorId: obj[key].creatorId
+    //       })
+    //     }
+    //     commit('setLoadedArticles', articles.reverse())
+    //   })
+    //   .catch((error) => {
+    //     console.log(error)
+    //   })
+    // },
     loadArticles ({commit}) {
       // Loads all articles once
       firebase.database().ref('articles').once('value')
@@ -140,6 +164,7 @@ export default new Vuex.Store({
             creatorId: obj[key].creatorId
           })
         }
+        console.log(articles)
         commit('setLoadedArticles', articles.reverse())
       })
       .catch((error) => {

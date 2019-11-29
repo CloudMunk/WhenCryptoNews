@@ -11,6 +11,7 @@
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "firebase": "^6.3.3",
+    "flamelink": "^1.0.0-alpha.26",
     "twitter": "^1.7.1",
     "vue": "^2.6.10",
     "vue-analytics": "^5.17.0",

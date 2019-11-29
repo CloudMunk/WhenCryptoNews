@@ -2,7 +2,7 @@
 
  <v-container  >
    <v-layout >
-     <v-flex xs12 sm12 md9 lg9 xl9>
+     <v-flex xs12 sm12 md12 lg12 xl12>
       <v-carousel
           cycle
           height="500"

@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
-import * as firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
+import 'firebase/storage'
 import router from './router'
 import store from './store'
 import EditArticlesDetailsDialog from './components/Articles/Edit/EditArticleDetailsDialog.vue'
@@ -11,6 +14,11 @@ import Vuetify from 'vuetify/lib'
 import Ads from 'vue-google-adsense'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import twitterComponent from './components/Articles/Twitter.vue'
+
+// flamelink
+import flamelink from 'flamelink/app'
+import 'flamelink/content'
+import 'flamelink/storage'
 
 // Google Adsense for Vue
 Vue.use(require('vue-script2'))
@@ -56,6 +64,12 @@ new Vue({
         this.$store.dispatch('autoSignIn', user)
       }
     })
+    // const app = flamelink({
+    //   firebaseApp,
+    //   env: 'production', // optional, defaults to `production`
+    //   locale: 'en-US', // optional, defaults to `en-US`
+    //   dbType: 'rtdb' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
+    // })
   },
   plugins: [
     { src: '~/plugins/vue-google-adsense', ssr: false }
