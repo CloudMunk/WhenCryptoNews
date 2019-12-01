@@ -37,8 +37,6 @@ Vue.use(Vuetify, {
   iconfont: 'fa'
 })
 
-
-
 // Adds Google Analytics to Platform and also auto follows routes
 Vue.use(VueAnalytics, {
   id: 'UA-144983280-1',
@@ -64,17 +62,21 @@ new Vue({
         this.$store.dispatch('autoSignIn', user)
       }
     })
-    // const app = flamelink({
-    //   firebaseApp,
-    //   env: 'production', // optional, defaults to `production`
-    //   locale: 'en-US', // optional, defaults to `en-US`
-    //   dbType: 'rtdb' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
-    // })
+    flamelink({
+      firebaseApp,
+      env: 'production', // optional, defaults to `production`
+      locale: 'en-US', // optional, defaults to `en-US`
+      dbType: 'rtdb' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
+    })
   },
   plugins: [
     { src: '~/plugins/vue-google-adsense', ssr: false }
   ]
 }).$mount('#app')
+
+ const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+// const app = flamelink({ firebaseApp });
 
 
 

@@ -28,8 +28,12 @@ export default new Vuex.Store({
     bitcoin: {},
     ethereum: {},
     daps: {},
+    flamelinkArticles: [],
   },
   mutations: {
+    setFlamelinkArticles(state, payload) {
+      state.flamelinkArticles = payload
+    },
     setLoadedArticles(state, payload) {
       state.loadedArticles = payload
     },
@@ -122,30 +126,14 @@ export default new Vuex.Store({
         console.log(error);
       })
     },
-    // loadArticles ({commit}) {
-    //   // Loads all articles once
-    //   firebase.database().ref('articles').once('value')
-    //   .then((data) => {
-    //     const articles = []
-    //     const obj = data.val()
-    //     for (let key in obj) {
-    //       articles.push({
-    //         id: key,
-    //         title: obj[key].title,
-    //         author: obj[key].author,
-    //         imageUrl: obj[key].imageUrl,
-    //         header: obj[key].header,
-    //         content: obj[key].content,
-    //         date: obj[key].date,
-    //         creatorId: obj[key].creatorId
-    //       })
-    //     }
-    //     commit('setLoadedArticles', articles.reverse())
-    //   })
-    //   .catch((error) => {
-    //     console.log(error)
-    //   })
-    // },
+    loadAllArticlesFlamelink() {
+      app.content.get('articles')
+        .then(articles => console.log('All the articles posts:', articles),  
+          commit('setFlamelinkArticles', articles)
+        )
+        .catch(error => console.error('Something went wrong while retrieving all the content. Details:', error));
+
+    },
     loadArticles ({commit}) {
       // Loads all articles once
       firebase.database().ref('articles').once('value')

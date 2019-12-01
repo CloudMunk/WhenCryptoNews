@@ -396,7 +396,7 @@
     computed: {
       // ...mapState(['loadedArticles']),
       allArticles () {
-          return this.$store.state.loadedArticles;
+          return this.$store.state.loadAllArticlesFlamelink;
       }
       // firstArticleReversed () {
       //   return this.allArticles;
