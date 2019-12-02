@@ -390,11 +390,15 @@
 <script>
 // import Adsense from 'vue-google-adsense/dist/Adsense.min.js'
 import { get } from 'lodash'
-import PageTitle from "@/components/PageTitle.vue";
+// import PageTitle from "@/components/PageTitle.vue";
 
   export default { 
+    data () {
+      articles = []
+    },
       components: {
-        PageTitle
+        // PageTitle
+        // articles
     }, 
     computed: {
       // ...mapState(['loadedArticles']),
@@ -410,11 +414,8 @@ import PageTitle from "@/components/PageTitle.vue";
     mounted () {
       this.$store.dispatch('loadArticles')
       this.$flamelinkApp.content.get('articles', articlesData => {
-        if(error) {
-          this.pageTitle = "Error in fetching homepage data"
-          return console.error(error)
-        }
-         this.pageTitle = get(articlesData, "pageTitle", "")
+        
+         this.articles = get(articlesData, "pageTitle", "")
       })
     },
     
