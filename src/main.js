@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
-import firebase from 'firebase/app'
+// import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
@@ -16,9 +16,19 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import twitterComponent from './components/Articles/Twitter.vue'
 
 // flamelink
-import flamelink from 'flamelink/app'
+// import flamelink from 'flamelink/app'
 import 'flamelink/content'
 import 'flamelink/storage'
+
+// Using Flamelink
+Vue.use({
+  apiKey: 'AIzaSyCIes13A_FjKuBw0BpIM50XFI6zXTFGl7M',
+  authDomain: 'when-crypto-news.firebaseapp.com',
+  databaseURL: 'https://when-crypto-news.firebaseio.com',
+  projectId: 'when-crypto-news',
+  storageBucket: 'gs://when-crypto-news.appspot.com',
+  messagingSenderId: '1:687590004878:web:099f168b50b203b3'
+});
 
 // Google Adsense for Vue
 Vue.use(require('vue-script2'))
@@ -48,35 +58,38 @@ new Vue({
   store,
   render: h => h(App),
   created() {
-    firebase.initializeApp({
-      apiKey: 'AIzaSyCIes13A_FjKuBw0BpIM50XFI6zXTFGl7M',
-      authDomain: 'when-crypto-news.firebaseapp.com',
-      databaseURL: 'https://when-crypto-news.firebaseio.com',
-      projectId: 'when-crypto-news',
-      storageBucket: 'gs://when-crypto-news.appspot.com',
-      messagingSenderId: '687590004878',
-      appId: '1:687590004878:web:099f168b50b203b3'
-    })
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.$store.dispatch('autoSignIn', user)
-      }
-    })
-    flamelink({
-      firebaseApp,
-      env: 'production', // optional, defaults to `production`
-      locale: 'en-US', // optional, defaults to `en-US`
-      dbType: 'rtdb' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
-    })
+    // const firebaseApp = firebase.initializeApp(firebaseConfig);
+    // const app = flamelink({ firebaseApp });
+    // firebase.initializeApp({
+    //   apiKey: 'AIzaSyCIes13A_FjKuBw0BpIM50XFI6zXTFGl7M',
+    //   authDomain: 'when-crypto-news.firebaseapp.com',
+    //   databaseURL: 'https://when-crypto-news.firebaseio.com',
+    //   projectId: 'when-crypto-news',
+    //   storageBucket: 'gs://when-crypto-news.appspot.com',
+    //   messagingSenderId: '687590004878',
+    //   appId: '1:687590004878:web:099f168b50b203b3'
+    // })
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.$store.dispatch('autoSignIn', user)
+    //   }
+    // })
+    // flamelink({
+    //   firebaseApp,
+    //   env: 'production', // optional, defaults to `production`
+    //   locale: 'en-US', // optional, defaults to `en-US`
+    //   dbType: 'rtdb' // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
+    // })
+    // app();
   },
   plugins: [
     { src: '~/plugins/vue-google-adsense', ssr: false }
   ]
 }).$mount('#app')
 
- const firebaseApp = firebase.initializeApp(firebaseConfig);
+ 
 
-// const app = flamelink({ firebaseApp });
+
 
 
 

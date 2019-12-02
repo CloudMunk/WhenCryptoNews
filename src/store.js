@@ -129,7 +129,7 @@ export default new Vuex.Store({
     loadAllArticlesFlamelink() {
       app.content.get('articles')
         .then(articles => console.log('All the articles posts:', articles),  
-          commit('setFlamelinkArticles', articles)
+          commit('setFlamelinkArticles', payload)
         )
         .catch(error => console.error('Something went wrong while retrieving all the content. Details:', error));
 
