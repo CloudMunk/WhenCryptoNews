@@ -126,14 +126,14 @@ export default new Vuex.Store({
         console.log(error);
       })
     },
-    loadAllArticlesFlamelink() {
-      app.content.get('articles')
-        .then(articles => console.log('All the articles posts:', articles),  
-          commit('setFlamelinkArticles', payload)
-        )
-        .catch(error => console.error('Something went wrong while retrieving all the content. Details:', error));
+    // loadAllArticlesFlamelink() {
+    //   app.content.get('articles')
+    //     .then(articles => console.log('All the articles posts:', articles),  
+    //       commit('setFlamelinkArticles', payload)
+    //     )
+    //     .catch(error => console.error('Something went wrong while retrieving all the content. Details:', error));
 
-    },
+    // },
     loadArticles ({commit}) {
       // Loads all articles once
       firebase.database().ref('articles').once('value')
